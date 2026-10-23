@@ -84,7 +84,12 @@ img{display:block;max-width:100%}
 /* "cover_hover": при наведении фирменный кадр сменяется оригиналом в цвете */
 .card img.alt,.player .poster img.alt{opacity:0;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .card:hover img.alt,.card:focus-visible img.alt,.poster:hover img.alt,.poster:focus-visible img.alt{opacity:1}
-@media (hover:none){.card img.alt,.poster img.alt{display:none}}
+/* телефоны: карточка в центре экрана проявляется в цвете, как при наведении (класс .live ставит скрипт) */
+.card.live img.alt,.poster.live img.alt{opacity:1}
+.card.live .shade{opacity:.45}
+.card.live .line{transform:scaleX(1)}
+.card.live img{transform:scale(1.04)}
+.poster.live::after{background:rgba(6,7,9,.15)}
 .card .shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(6,7,9,.55),rgba(6,7,9,.2) 75%);transition:opacity .5s}
 /* надпись сверху/снизу, если в центре обложки важная деталь: "text_pos" в projects.json */
 .card.at-top .t,.card.at-bottom .t{white-space:pre-line;text-wrap:balance;font-size:clamp(24px,2.9vw,42px);padding:0 16px}

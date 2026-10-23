@@ -54,6 +54,16 @@ def embed(url):
 
 
 ALLOW = "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock"
+LIVE_JS = """<script>
+(function () {
+  if (!window.matchMedia || !matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); });
+  }, { rootMargin: '-46% 0px -46% 0px' });
+  document.querySelectorAll('.card.has-cover, .poster').forEach(function (el) { io.observe(el); });
+})();
+</script>"""
 ABOUT_JS = """<script>
 (function () {
   document.documentElement.classList.add('js');
@@ -164,7 +174,8 @@ def about_panel(base):
 <div class="about-btns">{contacts_buttons()}</div>
 </aside>
 </div>
-{ABOUT_JS}"""
+{ABOUT_JS}
+{LIVE_JS}"""
 
 
 def asset(path):

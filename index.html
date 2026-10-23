@@ -157,5 +157,15 @@ ENERGY</span>
   if (location.hash === '#about') open();
 })();
 </script>
+<script>
+(function () {
+  if (!window.matchMedia || !matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); });
+  }, { rootMargin: '-46% 0px -46% 0px' });
+  document.querySelectorAll('.card.has-cover, .poster').forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
