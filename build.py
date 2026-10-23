@@ -24,6 +24,10 @@ def embed(url):
     """Ссылка на ролик -> src для iframe (или None)."""
     if not url:
         return None
+    url = url.strip()
+    m = re.search(r'src=["\']([^"\']+)', url)  # вставили целый <iframe> — берём из него src
+    if m:
+        url = m.group(1)
     u = urlparse(url)
     host = u.netloc.lower().replace("www.", "").replace("m.", "")
     if host == "youtu.be":
@@ -43,8 +47,9 @@ def embed(url):
     if "rutube.ru" in host:
         m = re.search(r"/video/([0-9a-f]{32})", u.path)
         return m and f"https://rutube.ru/play/embed/{m.group(1)}"
-    if "kinescope.io" in host:
-        return "https://kinescope.io/embed/" + u.path.strip("/").split("/")[-1]
+    if "kinescope" in host:  # kinescope.io/ID, kinescope.io/embed/ID, kinescope.io/watch/ID
+        parts = [x for x in u.path.split("/") if x and x not in ("embed", "watch", "w")]
+        return parts and f"https://kinescope.io/embed/{parts[-1]}?title=false&dnt=1"
     return None
 
 
@@ -158,7 +163,7 @@ def build_project(i, p):
     src = embed(p.get("video"))
     if src:
         player = (f'<iframe src="{e(src)}" title="{e(p["title"])}" loading="lazy" '
-                  'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" '
+                  'allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" '
                   'allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>')
     elif p.get("video"):
         bg = f'<img src="{base}{e(p["cover"])}" alt="">' if p.get("cover") else ""

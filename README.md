@@ -5,7 +5,7 @@
 ## Как добавить или поменять работу
 1. Открой `projects.json` и поправь или добавь запись:
    - `category`: `ads` / `music` / `youtube`
-   - `video`: ссылка на YouTube, Vimeo, VK Видео, Rutube или Kinescope (плеер встроится сам)
+   - `video`: ссылка на YouTube, Vimeo, VK Видео, Rutube или Kinescope — можно вставить и целый код `<iframe>` из Kinescope (плеер встроится сам)
    - `cover`: путь к обложке 16:9, например `assets/img/имя.jpg` (JPG ~1600 px, до 400 Кб). Без обложки карточка будет с крупным названием.
    - `tone`: `red` или `dark`, цвет карточки без обложки
    - `role`, `year`, `text`: необязательные, пустые не показываются
