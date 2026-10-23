@@ -24,6 +24,7 @@
 <a href="../../#ads"><span class="l">Реклама / имидж</span><span class="s">Реклама</span></a>
 <a href="../../#music"><span class="l">Музыкальные видео</span><span class="s">Клипы</span></a>
 <a href="../../#youtube"><span class="l">YouTube</span><span class="s">YouTube</span></a>
+<a href="#about" data-about-open><span class="l">Обо мне</span><span class="s">Обо мне</span></a>
 <a href="../../#contact"><span class="l">Контакты</span><span class="s">Контакты</span></a>
 </nav>
 <a class="btn small" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram ↗</a>
@@ -49,6 +50,41 @@
 <a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
 </div>
 </footer>
+<div id="about" class="about" role="dialog" aria-modal="true" aria-labelledby="about-title">
+<a class="about-bg" href="#" data-about-close aria-label="Закрыть"></a>
+<aside class="about-panel" tabindex="-1">
+<div class="about-top"><span>Обо мне</span><a class="about-x" href="#" data-about-close aria-label="Закрыть">✕</a></div>
+<div class="about-photo"><span class="ph" aria-hidden="true"><span class="ph-k"><span>ビ</span><span>デ</span><span>オ</span><span>編</span><span>集</span></span><span class="ph-m">SK</span></span></div>
+<h2 id="about-title" class="about-name">Stepan<br>Korovkin<i aria-hidden="true"></i></h2>
+<p class="about-role">Режиссёр монтажа</p>
+<p class="about-lead">Собираю рекламу и имиджевые ролики, музыкальные видео и YouTube-проекты.</p>
+
+<h3>Что делаю</h3><ul class="about-list"><li>Рекламные и имиджевые ролики</li><li>Музыкальные видео и тизеры</li><li>YouTube-шоу, подкасты и влоги</li></ul>
+<h3>Клиенты и проекты</h3><ul class="about-tags"><li>Т-Банк</li><li>Utopia Show</li><li>SBER AI</li><li>ГМИИ им. Пушкина</li><li>Телеканал 360</li><li>Gorilla Energy</li><li>Big Brands</li><li>RAM</li></ul>
+<div class="about-btns"><a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a></div>
+</aside>
+</div>
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var box = document.getElementById('about'), panel = box.querySelector('.about-panel'), last = null;
+  function open(e) {
+    if (e) e.preventDefault();
+    last = document.activeElement; box.classList.add('open'); document.body.classList.add('noscroll');
+    history.replaceState(null, '', '#about'); setTimeout(function () { panel.focus(); }, 50);
+  }
+  function close(e) {
+    if (e) e.preventDefault();
+    box.classList.remove('open'); document.body.classList.remove('noscroll');
+    history.replaceState(null, '', location.pathname + location.search);
+    if (last) last.focus();
+  }
+  document.querySelectorAll('[data-about-open]').forEach(function (a) { a.addEventListener('click', open); });
+  box.querySelectorAll('[data-about-close]').forEach(function (a) { a.addEventListener('click', close); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && box.classList.contains('open')) close(e); });
+  if (location.hash === '#about') open();
+})();
+</script>
 <script>
 document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
   b.addEventListener('click', function () {

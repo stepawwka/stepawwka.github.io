@@ -54,6 +54,27 @@ def embed(url):
 
 
 ALLOW = "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock"
+ABOUT_JS = """<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var box = document.getElementById('about'), panel = box.querySelector('.about-panel'), last = null;
+  function open(e) {
+    if (e) e.preventDefault();
+    last = document.activeElement; box.classList.add('open'); document.body.classList.add('noscroll');
+    history.replaceState(null, '', '#about'); setTimeout(function () { panel.focus(); }, 50);
+  }
+  function close(e) {
+    if (e) e.preventDefault();
+    box.classList.remove('open'); document.body.classList.remove('noscroll');
+    history.replaceState(null, '', location.pathname + location.search);
+    if (last) last.focus();
+  }
+  document.querySelectorAll('[data-about-open]').forEach(function (a) { a.addEventListener('click', open); });
+  box.querySelectorAll('[data-about-close]').forEach(function (a) { a.addEventListener('click', close); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && box.classList.contains('open')) close(e); });
+  if (location.hash === '#about') open();
+})();
+</script>"""
 PLAYER_JS = """<script>
 document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
   b.addEventListener('click', function () {
@@ -96,6 +117,7 @@ def header(base, home=True):
 <a class="mark" href="{base}" aria-label="{e(site['name'])} — на главную">SK</a>
 <nav class="nav" aria-label="Разделы">
 {links}
+<a href="#about" data-about-open><span class="l">Обо мне</span><span class="s">Обо мне</span></a>
 <a href="{pre}#contact"><span class="l">Контакты</span><span class="s">Контакты</span></a>
 </nav>
 <a class="btn small" href="https://t.me/{e(site['telegram'])}" target="_blank" rel="noopener">Telegram ↗</a>
@@ -109,13 +131,40 @@ def contacts_buttons():
     return b
 
 
-def footer():
+def footer(base=""):
     return f"""<footer id="contact" class="foot">
 <h2>НАПИСАТЬ<span aria-hidden="true"></span></h2>
 <div class="btns">
 {contacts_buttons()}
 </div>
-</footer>"""
+</footer>
+{about_panel(base)}"""
+
+
+def about_panel(base):
+    a = site.get("about", {})
+    if a.get("photo"):
+        photo = f'<img src="{base}{e(asset(a["photo"]))}" alt="{e(site["name"])}" loading="lazy" decoding="async">'
+    else:
+        photo = '<span class="ph" aria-hidden="true"><span class="ph-k">' + "".join(f"<span>{ch}</span>" for ch in KANA) + '</span><span class="ph-m">SK</span></span>'
+    paras = "".join(f"<p>{e(t)}</p>" for t in a.get("text", []))
+    services = "".join(f"<li>{e(x)}</li>" for x in a.get("services", []))
+    clients = "".join(f"<li>{e(x)}</li>" for x in a.get("clients", []))
+    return f"""<div id="about" class="about" role="dialog" aria-modal="true" aria-labelledby="about-title">
+<a class="about-bg" href="#" data-about-close aria-label="Закрыть"></a>
+<aside class="about-panel" tabindex="-1">
+<div class="about-top"><span>Обо мне</span><a class="about-x" href="#" data-about-close aria-label="Закрыть">✕</a></div>
+<div class="about-photo">{photo}</div>
+<h2 id="about-title" class="about-name">Stepan<br>Korovkin<i aria-hidden="true"></i></h2>
+<p class="about-role">{e(site['role'])}</p>
+<p class="about-lead">{e(a.get('lead'))}</p>
+{paras}
+{f'<h3>Что делаю</h3><ul class="about-list">{services}</ul>' if services else ''}
+{f'<h3>Клиенты и проекты</h3><ul class="about-tags">{clients}</ul>' if clients else ''}
+<div class="about-btns">{contacts_buttons()}</div>
+</aside>
+</div>
+{ABOUT_JS}"""
 
 
 def asset(path):
@@ -173,7 +222,7 @@ def build_index():
 </section>
 {chr(10).join(secs)}
 </main>
-{footer()}
+{footer(base)}
 </body>
 </html>
 """
@@ -230,7 +279,7 @@ def build_project(i, p):
 </nav>
 </section>
 </main>
-{footer()}
+{footer(base)}
 {PLAYER_JS if src else ""}
 </body>
 </html>

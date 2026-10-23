@@ -151,7 +151,7 @@ img{display:block;max-width:100%}
   .mark{font-size:24px}
   .mark::after{width:22px;height:5px}
   .top>.btn{padding:12px 14px;font-size:12px}
-  .nav{order:3;width:100%;justify-content:center;gap:0 20px;font-size:12px}
+  .nav{order:3;width:100%;justify-content:center;gap:0 14px;font-size:11px;letter-spacing:.08em}
   .nav a{padding:12px 0}
   .nav .l{display:none}.nav .s{display:inline}
   .sec,.sec+.sec{padding-top:56px;padding-bottom:16px}
@@ -172,3 +172,35 @@ img{display:block;max-width:100%}
   .card.at-top .t,.card.at-bottom .t{font-size:min(10cqi,42px);padding:0 5cqi}
   .card .t.one{font-size:min(8cqi,36px)}
 }
+
+/* ===== Обо мне: панель справа поверх страницы ===== */
+body.noscroll{overflow:hidden}
+.about{position:fixed;inset:0;z-index:100;visibility:hidden;transition:visibility 0s .6s}
+.about.open,html:not(.js) .about:target{visibility:visible;transition:none}
+.about-bg{position:absolute;inset:0;background:rgba(6,7,9,.72);opacity:0;transition:opacity .45s;cursor:pointer}
+.about.open .about-bg,html:not(.js) .about:target .about-bg{opacity:1}
+.about-panel{position:absolute;top:0;right:0;height:100%;width:min(560px,100%);overflow-y:auto;overscroll-behavior:contain;
+  background:#0b0c0f;border-left:1px solid var(--line);padding:24px clamp(20px,4vw,44px) 56px;outline:none;
+  transform:translateX(100%);transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.about.open .about-panel,html:not(.js) .about:target .about-panel{transform:none}
+@media (prefers-reduced-motion:reduce){.about-panel,.about-bg{transition:none}}
+.about-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.about-x{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;font-size:20px;color:var(--white)}
+.about-photo{position:relative;aspect-ratio:4/5;background:var(--wine);overflow:hidden;margin-bottom:32px}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.about-photo .ph-k{display:flex;flex-direction:column;font-family:var(--kana);font-size:clamp(64px,13vw,96px);line-height:1.04;color:var(--red);filter:brightness(1.35)}
+.about-photo .ph-m{position:absolute;font-family:var(--logo);font-size:clamp(90px,22vw,150px);line-height:1;color:var(--white)}
+.about-name{position:relative;display:inline-block;margin:0 0 14px;font-family:var(--logo);font-weight:400;text-transform:uppercase;font-size:clamp(52px,11vw,84px);line-height:.92}
+.about-name i{position:absolute;left:-6%;right:-6%;top:66%;height:clamp(7px,1.3vw,11px);background:var(--red)}
+.about-role{margin:0 0 28px;font-size:13px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--soft)}
+.about-panel p{margin:0 0 16px;font-size:17px;line-height:1.6;color:#C9CBD1}
+.about-panel .about-lead{font-size:clamp(19px,2.2vw,22px);line-height:1.45;color:var(--white)}
+.about-panel h3{margin:36px 0 14px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.about-list{list-style:none;margin:0;padding:0}
+.about-list li{font-family:var(--display);text-transform:uppercase;font-size:clamp(24px,3.4vw,30px);line-height:1.1;padding:10px 0;border-top:1px solid var(--line)}
+.about-list li:last-child{border-bottom:1px solid var(--line)}
+.about-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.about-tags li{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;border:1px solid #2a2c33}
+.about-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.about-btns .btn{padding:16px 22px;font-size:13px}
