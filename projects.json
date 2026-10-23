@@ -54,13 +54,14 @@
       "client": "Gorilla Energy",
       "role": "",
       "year": "",
-      "text": ""
+      "text": "",
+      "cover_hover": "assets/img/gorilla-color.jpg"
     },
     {
       "slug": "avi",
       "category": "ads",
       "title": "Big Brands: AVI Commercial",
-      "card": "AVI COMMERCIAL",
+      "card": "BIG BRANDS AVI",
       "label": "Big Brands · AVI",
       "cover": "assets/img/avi.jpg",
       "video": "https://vimeo.com/722671807",
@@ -68,13 +69,14 @@
       "role": "",
       "year": "",
       "text": "",
-      "text_pos": "top"
+      "text_pos": "top",
+      "cover_hover": "assets/img/avi-color.jpg"
     },
     {
       "slug": "pushkin-museum",
       "category": "ads",
       "title": "ГМИИ им. Пушкина — Excursions Promo",
-      "card": "ГМИИ ИМ. ПУШКИНА\nPROMO",
+      "card": "ГМИИ ИМ. ПУШКИНА",
       "label": "Промо",
       "cover": "assets/img/pushkin.jpg",
       "tone": "dark",
@@ -90,7 +92,7 @@
       "slug": "promo-360",
       "category": "ads",
       "title": "Промо канала 360",
-      "card": "ПРОМО КАНАЛА 360",
+      "card": "ПОГОДА 360",
       "label": "Промо",
       "cover": "assets/img/promo360.jpg",
       "tone": "red",
@@ -99,7 +101,7 @@
       "role": "",
       "year": "",
       "text": "",
-      "text_pos": "bottom"
+      "cover_hover": "assets/img/promo360-color.jpg"
     },
     {
       "slug": "saint-petersburg",
@@ -115,7 +117,7 @@
       "year": "",
       "text": "",
       "cover_hover": "assets/img/spb-color.jpg",
-      "text_pos": "top"
+      "text_pos": "bottom"
     },
     {
       "slug": "sber-technology",
