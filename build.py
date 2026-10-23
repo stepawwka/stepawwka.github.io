@@ -61,7 +61,7 @@ LIVE_JS = """<script>
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); });
   }, { rootMargin: '-46% 0px -46% 0px' });
-  document.querySelectorAll('.card.has-cover, .poster').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('.card.has-cover, .poster, .about-photo').forEach(function (el) { io.observe(el); });
 })();
 </script>"""
 ABOUT_JS = """<script>
@@ -155,6 +155,8 @@ def about_panel(base):
     a = site.get("about", {})
     if a.get("photo"):
         photo = f'<img src="{base}{e(asset(a["photo"]))}" alt="{e(site["name"])}" loading="lazy" decoding="async">'
+        if a.get("photo_hover"):
+            photo += f'<img class="alt" src="{base}{e(asset(a["photo_hover"]))}" alt="" loading="lazy" decoding="async">'
     else:
         photo = '<span class="ph" aria-hidden="true"><span class="ph-k">' + "".join(f"<span>{ch}</span>" for ch in KANA) + '</span><span class="ph-m">SK</span></span>'
     paras = "".join(f"<p>{e(t)}</p>" for t in a.get("text", []))

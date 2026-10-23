@@ -54,7 +54,7 @@
 <a class="about-bg" href="#" data-about-close aria-label="Закрыть"></a>
 <aside class="about-panel" tabindex="-1">
 <div class="about-top"><span>Обо мне</span><a class="about-x" href="#" data-about-close aria-label="Закрыть">✕</a></div>
-<div class="about-photo"><span class="ph" aria-hidden="true"><span class="ph-k"><span>ビ</span><span>デ</span><span>オ</span><span>編</span><span>集</span></span><span class="ph-m">SK</span></span></div>
+<div class="about-photo"><img src="../../assets/img/me.jpg?v=4d9125f3" alt="Stepan Korovkin" loading="lazy" decoding="async"><img class="alt" src="../../assets/img/me-color.jpg?v=3a5415ee" alt="" loading="lazy" decoding="async"></div>
 <h2 id="about-title" class="about-name">Stepan<br>Korovkin<i aria-hidden="true"></i></h2>
 <p class="about-role">Режиссёр монтажа</p>
 <p class="about-lead">Собираю рекламу и имиджевые ролики, музыкальные видео и YouTube-проекты.</p>
@@ -93,7 +93,7 @@
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { e.target.classList.toggle('live', e.isIntersecting); });
   }, { rootMargin: '-46% 0px -46% 0px' });
-  document.querySelectorAll('.card.has-cover, .poster').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('.card.has-cover, .poster, .about-photo').forEach(function (el) { io.observe(el); });
 })();
 </script>
 <script>

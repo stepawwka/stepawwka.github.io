@@ -6,7 +6,7 @@
     "email": "yrasreda2@gmail.com",
     "url": "",
     "about": {
-      "photo": "",
+      "photo": "assets/img/me.jpg",
       "lead": "Собираю рекламу и имиджевые ролики, музыкальные видео и YouTube-проекты.",
       "text": [],
       "services": [
@@ -23,7 +23,8 @@
         "Gorilla Energy",
         "Big Brands",
         "RAM"
-      ]
+      ],
+      "photo_hover": "assets/img/me-color.jpg"
     }
   },
   "categories": [
@@ -191,7 +192,7 @@
       "label": "YouTube",
       "cover": "assets/img/reshetova.jpg",
       "video": "https://youtu.be/zXEPpnWTKvQ",
-      "client": "«Это Решетова!»",
+      "client": "Это Решетова!",
       "role": "Монтаж, цвет, SFX",
       "year": "2026",
       "text": "",
@@ -207,7 +208,7 @@
       "label": "YouTube",
       "cover": "assets/img/beauty.jpg",
       "video": "https://youtu.be/B_NFsDjrGR0",
-      "client": "«Это Решетова!»",
+      "client": "Это Решетова!",
       "role": "Монтаж, цвет",
       "year": "2026",
       "text": "",

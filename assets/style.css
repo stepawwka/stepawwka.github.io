@@ -197,6 +197,8 @@ body.noscroll{overflow:hidden}
 .about-x{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;font-size:20px;color:var(--white)}
 .about-photo{position:relative;aspect-ratio:4/5;background:var(--wine);overflow:hidden;margin-bottom:32px}
 .about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo img.alt{position:absolute;inset:0;opacity:0;transition:opacity .6s ease}
+.about-photo:hover img.alt,.about-photo.live img.alt{opacity:1}
 .about-photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .about-photo .ph-k{display:flex;flex-direction:column;font-family:var(--kana);font-size:clamp(64px,13vw,96px);line-height:1.04;color:var(--red);filter:brightness(1.35)}
 .about-photo .ph-m{position:absolute;font-family:var(--logo);font-size:clamp(90px,22vw,150px);line-height:1;color:var(--white)}
