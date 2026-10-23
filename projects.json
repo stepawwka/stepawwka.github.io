@@ -7,19 +7,149 @@
     "url": ""
   },
   "categories": [
-    { "id": "ads", "num": "01", "title": "Реклама / имидж", "short": "Реклама" },
-    { "id": "music", "num": "02", "title": "Музыкальные видео", "short": "Клипы" },
-    { "id": "youtube", "num": "03", "title": "YouTube", "short": "YouTube" }
+    {
+      "id": "ads",
+      "num": "01",
+      "title": "Реклама / имидж",
+      "short": "Реклама"
+    },
+    {
+      "id": "music",
+      "num": "02",
+      "title": "Музыкальные видео",
+      "short": "Клипы"
+    },
+    {
+      "id": "youtube",
+      "num": "03",
+      "title": "YouTube",
+      "short": "YouTube"
+    }
   ],
   "projects": [
-    { "slug": "avi", "category": "ads", "title": "Big Brands: AVI Commercial", "card": "AVI\nCOMMERCIAL", "label": "Big Brands · AVI", "cover": "assets/img/avi.jpg", "video": "", "client": "Big Brands", "role": "", "year": "", "text": "" },
-    { "slug": "gorilla-energy", "category": "ads", "title": "Gorilla Energy", "card": "GORILLA\nENERGY", "label": "Gorilla Energy", "cover": "assets/img/gorilla.jpg", "video": "https://www.youtube.com/watch?v=pOv_AkQMyEU", "client": "Gorilla Energy", "role": "", "year": "", "text": "" },
-    { "slug": "tbank-utopia", "category": "ads", "title": "Т-Банк X Utopia Show", "card": "Т-БАНК X\nUTOPIA SHOW", "label": "Реклама", "cover": "", "tone": "red", "video": "", "client": "Т-Банк", "role": "", "year": "", "text": "" },
-    { "slug": "pushkin-museum", "category": "ads", "title": "ГМИИ им. Пушкина — Excursions Promo", "card": "ГМИИ ИМ. ПУШКИНА\nEXCURSIONS PROMO", "label": "Промо", "cover": "", "tone": "dark", "video": "", "client": "The Pushkin State Museum of Fine Arts", "role": "", "year": "", "text": "" },
-    { "slug": "promo-360", "category": "ads", "title": "Промо канала 360", "card": "ПРОМО\nКАНАЛА 360", "label": "Промо", "cover": "", "tone": "red", "video": "", "client": "Телеканал 360", "role": "", "year": "", "text": "" },
-    { "slug": "saint-petersburg", "category": "ads", "title": "Санкт-Петербург — имиджевый ролик", "card": "САНКТ-\nПЕТЕРБУРГ", "label": "Имиджевый ролик", "cover": "", "tone": "dark", "video": "", "client": "", "role": "", "year": "", "text": "" },
-    { "slug": "sber-technology", "category": "music", "title": "SBER AI, Filatov & Karas — «Technology»", "card": "SBER AI X FILATOV & KARAS\n«TECHNOLOGY»", "label": "Тизер клипа", "cover": "", "tone": "red", "video": "", "client": "SBER AI", "role": "", "year": "", "text": "" },
-    { "slug": "nezhny-redaktor", "category": "youtube", "title": "Нежный Редактор. Подкаст", "card": "НЕЖНЫЙ РЕДАКТОР\nПОДКАСТ", "label": "Подкаст", "cover": "", "tone": "dark", "video": "https://youtu.be/ormiyZperCQ", "client": "", "role": "", "year": "", "text": "" },
-    { "slug": "ram-king-of-monkeys", "category": "youtube", "title": "RAM — Король Обезьян", "card": "RAM —\nКОРОЛЬ ОБЕЗЬЯН", "label": "Документальное промо", "cover": "", "tone": "red", "video": "", "client": "RAM", "role": "", "year": "", "text": "" }
+    {
+      "slug": "avi",
+      "category": "ads",
+      "title": "Big Brands: AVI Commercial",
+      "card": "AVI\nCOMMERCIAL",
+      "label": "Big Brands · AVI",
+      "cover": "assets/img/avi.jpg",
+      "video": "",
+      "client": "Big Brands",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "gorilla-energy",
+      "category": "ads",
+      "title": "Gorilla Energy",
+      "card": "GORILLA\nENERGY",
+      "label": "Gorilla Energy",
+      "cover": "assets/img/gorilla.jpg",
+      "video": "https://kinescope.io/embed/933325d1-2197-434f-8422-750ce5ca9934",
+      "client": "Gorilla Energy",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "tbank-utopia",
+      "category": "ads",
+      "title": "Т-Банк X Utopia Show",
+      "card": "Т-БАНК X\nUTOPIA SHOW",
+      "label": "Реклама",
+      "cover": "",
+      "tone": "red",
+      "video": "",
+      "client": "Т-Банк",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "pushkin-museum",
+      "category": "ads",
+      "title": "ГМИИ им. Пушкина — Excursions Promo",
+      "card": "ГМИИ ИМ. ПУШКИНА\nEXCURSIONS PROMO",
+      "label": "Промо",
+      "cover": "",
+      "tone": "dark",
+      "video": "",
+      "client": "The Pushkin State Museum of Fine Arts",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "promo-360",
+      "category": "ads",
+      "title": "Промо канала 360",
+      "card": "ПРОМО\nКАНАЛА 360",
+      "label": "Промо",
+      "cover": "",
+      "tone": "red",
+      "video": "",
+      "client": "Телеканал 360",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "saint-petersburg",
+      "category": "ads",
+      "title": "Санкт-Петербург — имиджевый ролик",
+      "card": "САНКТ-\nПЕТЕРБУРГ",
+      "label": "Имиджевый ролик",
+      "cover": "",
+      "tone": "dark",
+      "video": "",
+      "client": "",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "sber-technology",
+      "category": "music",
+      "title": "SBER AI, Filatov & Karas — «Technology»",
+      "card": "SBER AI X FILATOV & KARAS\n«TECHNOLOGY»",
+      "label": "Тизер клипа",
+      "cover": "",
+      "tone": "red",
+      "video": "",
+      "client": "SBER AI",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "nezhny-redaktor",
+      "category": "youtube",
+      "title": "Нежный Редактор. Подкаст",
+      "card": "НЕЖНЫЙ РЕДАКТОР\nПОДКАСТ",
+      "label": "Подкаст",
+      "cover": "",
+      "tone": "dark",
+      "video": "https://youtu.be/ormiyZperCQ",
+      "client": "",
+      "role": "",
+      "year": "",
+      "text": ""
+    },
+    {
+      "slug": "ram-king-of-monkeys",
+      "category": "youtube",
+      "title": "RAM — Король Обезьян",
+      "card": "RAM —\nКОРОЛЬ ОБЕЗЬЯН",
+      "label": "Документальное промо",
+      "cover": "",
+      "tone": "red",
+      "video": "https://www.youtube.com/watch?v=pOv_AkQMyEU",
+      "client": "RAM",
+      "role": "",
+      "year": "",
+      "text": ""
+    }
   ]
 }
