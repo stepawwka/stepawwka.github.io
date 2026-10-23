@@ -39,7 +39,8 @@
       "client": "Т-Банк",
       "role": "",
       "year": "",
-      "text": ""
+      "text": "",
+      "cover_hover": "assets/img/tbank-color.jpg"
     },
     {
       "slug": "gorilla-energy",

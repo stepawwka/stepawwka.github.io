@@ -131,7 +131,9 @@ def asset(path):
 def card(p, base):
     longest = max(len(x) for x in p["card"].split("\n"))
     tone = " red" if (not p.get("cover") and p.get("tone") == "red") else ""
-    bg = (f'<img src="{base}{e(asset(p["cover"]))}" alt="" loading="lazy" decoding="async"><span class="shade" aria-hidden="true"></span>'
+    alt = (f'<img class="alt" src="{base}{e(asset(p["cover_hover"]))}" alt="" loading="lazy" decoding="async">'
+           if p.get("cover_hover") else "")
+    bg = (f'<img src="{base}{e(asset(p["cover"]))}" alt="" loading="lazy" decoding="async">{alt}<span class="shade" aria-hidden="true"></span>'
           if p.get("cover") else "")
     pos = f" at-{p['text_pos']}" if p.get("text_pos") in ("top", "bottom") else ""
     return f"""<a class="card{tone}{' has-cover' if p.get('cover') else ''}{pos}" href="{base}work/{p['slug']}/">
@@ -190,6 +192,8 @@ def build_project(i, p):
         poster = p.get("poster") or p.get("cover")
         if poster:
             inner = f'<img src="{base}{e(asset(poster))}" alt="" decoding="async">'
+            if p.get("cover_hover") and not p.get("poster"):
+                inner += f'<img class="alt" src="{base}{e(asset(p["cover_hover"]))}" alt="" decoding="async">'
             tone = ""
         else:
             inner = f'<b aria-hidden="true">{e(p["card"])}</b>'
