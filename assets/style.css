@@ -95,7 +95,7 @@ img{display:block;max-width:100%}
 .p-head{padding-top:40px;padding-bottom:48px}
 .p-head .cat{margin:0 0 20px;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
 .p-head h1{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(48px,9.7vw,140px);line-height:.92;overflow-wrap:anywhere}
-.player{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.player{position:relative;z-index:60;aspect-ratio:16/9;background:#000;overflow:hidden} /* плеер поверх зерна */
 .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .player img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
 .player .soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
