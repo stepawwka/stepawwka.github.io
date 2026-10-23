@@ -13,7 +13,7 @@ e = lambda s: html.escape(s or "", quote=True)
 KANA = "ビデオ編集"
 FONTS = "\n".join(
     f'<link rel="preload" href="{{base}}assets/fonts/{f}" as="font" type="font/woff2" crossorigin>'
-    for f in ("anton-latin.woff2", "oswald-cyrillic-700.woff2", "yuji-kana.woff2"))
+    for f in ("anton-latin.woff2", "sofia-latin-900.woff2", "sofia-cyrillic-900.woff2", "yuji-kana.woff2"))
 FAVICON = ("data:image/svg+xml," + quote(
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#060709"/>'
     '<text x="32" y="44" font-family="Impact,Arial Narrow,sans-serif" font-size="34" fill="#F7F8FA" text-anchor="middle">SK</text>'
