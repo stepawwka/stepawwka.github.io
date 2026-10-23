@@ -184,7 +184,7 @@ def card(p, base):
            if p.get("cover_hover") else "")
     bg = (f'<img src="{base}{e(asset(p["cover"]))}" alt="" loading="lazy" decoding="async">{alt}<span class="shade" aria-hidden="true"></span>'
           if p.get("cover") else "")
-    pos = f" at-{p['text_pos']}" if p.get("text_pos") in ("top", "bottom") else ""
+    pos = f" at-{p['text_pos']}" if p.get("text_pos") in ("top", "bottom", "left") else ""
     return f"""<a class="card{tone}{' has-cover' if p.get('cover') else ''}{pos}" href="{base}work/{p['slug']}/">
 {bg}<span class="t{" long" if longest > 14 else ""}{" one" if (pos and "\n" not in p["card"] and len(p["card"]) > 16) else ""}" aria-hidden="true">{e(p["card"])}</span>
 <span class="sr">{e(p['title'])}</span>

@@ -200,7 +200,7 @@
       "card": "РЕШЕТОВА\nВЛОГ",
       "tone": "red",
       "cover_hover": "assets/img/reshetova-color.jpg",
-      "text_pos": "bottom"
+      "text_pos": "left"
     },
     {
       "label": "YouTube",

@@ -90,6 +90,9 @@ img{display:block;max-width:100%}
 .card.at-top .t,.card.at-bottom .t{white-space:pre-line;text-wrap:balance;font-size:clamp(24px,2.9vw,42px);padding:0 16px}
 .card.at-top{align-items:flex-start;padding-top:clamp(14px,2.2vw,28px)}
 .card.at-bottom{align-items:flex-end;padding-bottom:clamp(14px,2.2vw,28px)}
+.card.at-left{justify-content:flex-start}
+.card.at-left .t{text-align:left;padding-left:clamp(16px,2.6vw,32px);max-width:62%}
+.card.at-left .shade{background:linear-gradient(90deg,rgba(6,7,9,.7),rgba(6,7,9,.25) 55%,rgba(6,7,9,.05))}
 .card.at-top .shade{background:linear-gradient(rgba(6,7,9,.7),rgba(6,7,9,.2) 55%,rgba(6,7,9,.1))}
 .card.at-bottom .shade{background:linear-gradient(rgba(6,7,9,.1),rgba(6,7,9,.2) 45%,rgba(6,7,9,.7))}
 .card.has-cover .t{text-shadow:0 2px 6px rgba(0,0,0,.35),0 4px 40px rgba(0,0,0,.55)}
@@ -171,6 +174,7 @@ img{display:block;max-width:100%}
   .card .t.long{font-size:min(10.5cqi,48px)}
   .card.at-top .t,.card.at-bottom .t{font-size:min(10cqi,42px);padding:0 5cqi}
   .card .t.one{font-size:min(8cqi,36px)}
+  .card.at-left .t{padding:0 0 0 6cqi;max-width:62%;font-size:min(9cqi,40px);overflow-wrap:normal}
 }
 
 /* ===== Обо мне: панель справа поверх страницы ===== */
