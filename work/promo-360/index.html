@@ -33,8 +33,8 @@
 <p class="cat">01 · Реклама / имидж</p>
 <h1>Промо канала 360</h1>
 </section>
-<div class="wrap"><div class="player"><div class="soon"><b>ПРОМО
-КАНАЛА 360</b><span>Видео скоро</span></div></div></div>
+<div class="wrap"><div class="player" data-src="https://player.vimeo.com/video/787574185?dnt=1&amp;autoplay=1" data-title="Промо канала 360"><button class="poster red" type="button" aria-label="Смотреть: Промо канала 360"><b aria-hidden="true">ПРОМО
+КАНАЛА 360</b><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button><noscript><iframe src="https://player.vimeo.com/video/787574185?dnt=1" title="Промо канала 360" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen></iframe></noscript></div></div>
 <section class="wrap">
 <div class="facts"><div><span>Клиент</span><strong>Телеканал 360</strong></div></div>
 <nav class="pn" aria-label="Соседние проекты">
@@ -49,5 +49,15 @@
 <a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
 </div>
 </footer>
+<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>
 </body>
 </html>

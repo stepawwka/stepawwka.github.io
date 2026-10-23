@@ -33,11 +33,11 @@
 <p class="cat">01 · Реклама / имидж</p>
 <h1>Big Brands: AVI Commercial</h1>
 </section>
-<div class="wrap"><div class="player"><img src="../../assets/img/avi.jpg" alt=""><div class="soon"><span>Видео скоро</span></div></div></div>
+<div class="wrap"><div class="player" data-src="https://player.vimeo.com/video/722671807?dnt=1&amp;autoplay=1" data-title="Big Brands: AVI Commercial"><button class="poster" type="button" aria-label="Смотреть: Big Brands: AVI Commercial"><img src="../../assets/img/avi.jpg" alt="" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button><noscript><iframe src="https://player.vimeo.com/video/722671807?dnt=1" title="Big Brands: AVI Commercial" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen></iframe></noscript></div></div>
 <section class="wrap">
 <div class="facts"><div><span>Клиент</span><strong>Big Brands</strong></div></div>
 <nav class="pn" aria-label="Соседние проекты">
-<a href="../../work/ram-king-of-monkeys/"><span>← Предыдущий</span><strong>RAM — Король Обезьян</strong></a>
+<a href="../../work/nezhny-redaktor/"><span>← Предыдущий</span><strong>Нежный Редактор. Подкаст</strong></a>
 <a class="next" href="../../work/gorilla-energy/"><span>Следующий →</span><strong>Gorilla Energy</strong></a>
 </nav>
 </section>
@@ -48,5 +48,15 @@
 <a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
 </div>
 </footer>
+<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>
 </body>
 </html>

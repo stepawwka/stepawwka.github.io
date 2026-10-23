@@ -33,13 +33,13 @@
 <p class="cat">02 · Музыкальные видео</p>
 <h1>SBER AI, Filatov &amp; Karas — «Technology»</h1>
 </section>
-<div class="wrap"><div class="player"><div class="soon"><b>SBER AI X FILATOV &amp; KARAS
-«TECHNOLOGY»</b><span>Видео скоро</span></div></div></div>
+<div class="wrap"><div class="player" data-src="https://player.vimeo.com/video/723012933?dnt=1&amp;autoplay=1" data-title="SBER AI, Filatov &amp; Karas — «Technology»"><button class="poster red" type="button" aria-label="Смотреть: SBER AI, Filatov &amp; Karas — «Technology»"><b aria-hidden="true">SBER AI X FILATOV &amp; KARAS
+«TECHNOLOGY»</b><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button><noscript><iframe src="https://player.vimeo.com/video/723012933?dnt=1" title="SBER AI, Filatov &amp; Karas — «Technology»" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen></iframe></noscript></div></div>
 <section class="wrap">
 <div class="facts"><div><span>Клиент</span><strong>SBER AI</strong></div></div>
 <nav class="pn" aria-label="Соседние проекты">
 <a href="../../work/saint-petersburg/"><span>← Предыдущий</span><strong>Санкт-Петербург — имиджевый ролик</strong></a>
-<a class="next" href="../../work/nezhny-redaktor/"><span>Следующий →</span><strong>Нежный Редактор. Подкаст</strong></a>
+<a class="next" href="../../work/ram-king-of-monkeys/"><span>Следующий →</span><strong>RAM — Король Обезьян</strong></a>
 </nav>
 </section>
 </main>
@@ -49,5 +49,15 @@
 <a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
 </div>
 </footer>
+<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>
 </body>
 </html>

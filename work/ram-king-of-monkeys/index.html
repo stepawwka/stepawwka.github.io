@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RAM — Король Обезьян — Stepan Korovkin</title>
-<meta name="description" content="RAM — Король Обезьян. YouTube. Монтаж — Stepan Korovkin.">
+<meta name="description" content="RAM — Король Обезьян. Музыкальные видео. Монтаж — Stepan Korovkin.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="RAM — Король Обезьян — Stepan Korovkin">
-<meta property="og:description" content="RAM — Король Обезьян. YouTube. Монтаж — Stepan Korovkin.">
+<meta property="og:description" content="RAM — Король Обезьян. Музыкальные видео. Монтаж — Stepan Korovkin.">
 <meta property="og:image" content="../../assets/img/og.jpg">
 <meta name="theme-color" content="#060709">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23060709%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Impact%2CArial%20Narrow%2Csans-serif%22%20font-size%3D%2234%22%20fill%3D%22%23F7F8FA%22%20text-anchor%3D%22middle%22%3ESK%3C/text%3E%3Crect%20x%3D%228%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%226%22%20fill%3D%22%23E10E0E%22/%3E%3C/svg%3E">
@@ -30,15 +30,16 @@
 </header>
 <main>
 <section class="wrap p-head">
-<p class="cat">03 · YouTube</p>
+<p class="cat">02 · Музыкальные видео</p>
 <h1>RAM — Король Обезьян</h1>
 </section>
-<div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/pOv_AkQMyEU?rel=0&amp;modestbranding=1" title="RAM — Король Обезьян" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>
+<div class="wrap"><div class="player" data-src="https://www.youtube-nocookie.com/embed/pOv_AkQMyEU?rel=0&amp;modestbranding=1&amp;autoplay=1" data-title="RAM — Король Обезьян"><button class="poster red" type="button" aria-label="Смотреть: RAM — Король Обезьян"><b aria-hidden="true">RAM —
+КОРОЛЬ ОБЕЗЬЯН</b><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button><noscript><iframe src="https://www.youtube-nocookie.com/embed/pOv_AkQMyEU?rel=0&amp;modestbranding=1" title="RAM — Король Обезьян" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen></iframe></noscript></div></div>
 <section class="wrap">
 <div class="facts"><div><span>Клиент</span><strong>RAM</strong></div></div>
 <nav class="pn" aria-label="Соседние проекты">
-<a href="../../work/nezhny-redaktor/"><span>← Предыдущий</span><strong>Нежный Редактор. Подкаст</strong></a>
-<a class="next" href="../../work/avi/"><span>Следующий →</span><strong>Big Brands: AVI Commercial</strong></a>
+<a href="../../work/sber-technology/"><span>← Предыдущий</span><strong>SBER AI, Filatov &amp; Karas — «Technology»</strong></a>
+<a class="next" href="../../work/nezhny-redaktor/"><span>Следующий →</span><strong>Нежный Редактор. Подкаст</strong></a>
 </nav>
 </section>
 </main>
@@ -48,5 +49,15 @@
 <a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
 </div>
 </footer>
+<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>
 </body>
 </html>

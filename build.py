@@ -53,6 +53,19 @@ def embed(url):
     return None
 
 
+ALLOW = "autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock"
+PLAYER_JS = """<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = '%s';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>""" % ALLOW
+
+
 def head(title, desc, base, og_url=""):
     og_img = (site.get("url") or "").rstrip("/") + "/assets/img/og.jpg" if site.get("url") else base + "assets/img/og.jpg"
     return f"""<!doctype html>
@@ -161,10 +174,21 @@ def build_project(i, p):
     base = "../../"
     c = cat_by_id[p["category"]]
     src = embed(p.get("video"))
+    player_attrs = ""
     if src:
-        player = (f'<iframe src="{e(src)}" title="{e(p["title"])}" loading="lazy" '
-                  'allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" '
-                  'allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>')
+        # своя обложка с кнопкой Play; плеер грузится только после клика
+        play_src = src + ("&" if "?" in src else "?") + "autoplay=1"
+        player_attrs = f' data-src="{e(play_src)}" data-title="{e(p["title"])}"'
+        poster = p.get("poster") or p.get("cover")
+        if poster:
+            inner = f'<img src="{base}{e(poster)}" alt="" decoding="async">'
+            tone = ""
+        else:
+            inner = f'<b aria-hidden="true">{e(p["card"])}</b>'
+            tone = " red" if p.get("tone") == "red" else ""
+        player = (f'<button class="poster{tone}" type="button" aria-label="Смотреть: {e(p["title"])}">{inner}'
+                  '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>'
+                  f'<noscript><iframe src="{e(src)}" title="{e(p["title"])}" allow="{ALLOW}" allowfullscreen></iframe></noscript>')
     elif p.get("video"):
         bg = f'<img src="{base}{e(p["cover"])}" alt="">' if p.get("cover") else ""
         player = f'{bg}<div class="soon"><b>{e(p["card"])}</b><a class="btn fill" href="{e(p["video"])}" target="_blank" rel="noopener">Смотреть ↗</a></div>'
@@ -185,7 +209,7 @@ def build_project(i, p):
 <p class="cat">{c['num']} · {e(c['title'])}</p>
 <h1>{e(p['title'])}</h1>
 </section>
-<div class="wrap"><div class="player">{player}</div></div>
+<div class="wrap"><div class="player"{player_attrs}>{player}</div></div>
 <section class="wrap">
 {f'<div class="facts">{facts_html}</div>' if facts_html else ''}
 <nav class="pn" aria-label="Соседние проекты">
@@ -195,6 +219,7 @@ def build_project(i, p):
 </section>
 </main>
 {footer()}
+{PLAYER_JS if src else ""}
 </body>
 </html>
 """

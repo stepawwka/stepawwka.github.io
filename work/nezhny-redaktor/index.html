@@ -33,12 +33,13 @@
 <p class="cat">03 · YouTube</p>
 <h1>Нежный Редактор. Подкаст</h1>
 </section>
-<div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/ormiyZperCQ?rel=0&amp;modestbranding=1" title="Нежный Редактор. Подкаст" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>
+<div class="wrap"><div class="player" data-src="https://www.youtube-nocookie.com/embed/ormiyZperCQ?rel=0&amp;modestbranding=1&amp;autoplay=1" data-title="Нежный Редактор. Подкаст"><button class="poster" type="button" aria-label="Смотреть: Нежный Редактор. Подкаст"><b aria-hidden="true">НЕЖНЫЙ РЕДАКТОР
+ПОДКАСТ</b><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button><noscript><iframe src="https://www.youtube-nocookie.com/embed/ormiyZperCQ?rel=0&amp;modestbranding=1" title="Нежный Редактор. Подкаст" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen></iframe></noscript></div></div>
 <section class="wrap">
 
 <nav class="pn" aria-label="Соседние проекты">
-<a href="../../work/sber-technology/"><span>← Предыдущий</span><strong>SBER AI, Filatov &amp; Karas — «Technology»</strong></a>
-<a class="next" href="../../work/ram-king-of-monkeys/"><span>Следующий →</span><strong>RAM — Король Обезьян</strong></a>
+<a href="../../work/ram-king-of-monkeys/"><span>← Предыдущий</span><strong>RAM — Король Обезьян</strong></a>
+<a class="next" href="../../work/avi/"><span>Следующий →</span><strong>Big Brands: AVI Commercial</strong></a>
 </nav>
 </section>
 </main>
@@ -48,5 +49,15 @@
 <a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
 </div>
 </footer>
+<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>
 </body>
 </html>
