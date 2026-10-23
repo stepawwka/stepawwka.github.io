@@ -188,7 +188,7 @@
     },
     {
       "label": "YouTube",
-      "cover": "",
+      "cover": "assets/img/reshetova.jpg",
       "video": "https://youtu.be/zXEPpnWTKvQ",
       "client": "",
       "role": "",
@@ -198,11 +198,13 @@
       "slug": "reshetova-moscow-raceway",
       "title": "Решетова влог с Moscow Raceway",
       "card": "РЕШЕТОВА\nВЛОГ",
-      "tone": "red"
+      "tone": "red",
+      "cover_hover": "assets/img/reshetova-color.jpg",
+      "text_pos": "bottom"
     },
     {
       "label": "YouTube",
-      "cover": "",
+      "cover": "assets/img/beauty.jpg",
       "video": "https://youtu.be/B_NFsDjrGR0",
       "client": "",
       "role": "",
@@ -212,7 +214,9 @@
       "slug": "beauty-bez-kupyur",
       "title": "Бьюти без купюр",
       "card": "БЬЮТИ\nБЕЗ КУПЮР",
-      "tone": "dark"
+      "tone": "dark",
+      "cover_hover": "assets/img/beauty-color.jpg",
+      "text_pos": "bottom"
     }
   ]
 }
