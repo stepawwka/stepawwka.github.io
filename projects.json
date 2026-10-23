@@ -58,14 +58,15 @@
       "slug": "avi",
       "category": "ads",
       "title": "Big Brands: AVI Commercial",
-      "card": "AVI\nCOMMERCIAL",
+      "card": "AVI COMMERCIAL",
       "label": "Big Brands · AVI",
       "cover": "assets/img/avi.jpg",
       "video": "https://vimeo.com/722671807",
       "client": "Big Brands",
       "role": "",
       "year": "",
-      "text": ""
+      "text": "",
+      "text_pos": "top"
     },
     {
       "slug": "pushkin-museum",

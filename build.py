@@ -133,7 +133,8 @@ def card(p, base):
     tone = " red" if (not p.get("cover") and p.get("tone") == "red") else ""
     bg = (f'<img src="{base}{e(asset(p["cover"]))}" alt="" loading="lazy" decoding="async"><span class="shade" aria-hidden="true"></span>'
           if p.get("cover") else "")
-    return f"""<a class="card{tone}{' has-cover' if p.get('cover') else ''}" href="{base}work/{p['slug']}/">
+    pos = f" at-{p['text_pos']}" if p.get("text_pos") in ("top", "bottom") else ""
+    return f"""<a class="card{tone}{' has-cover' if p.get('cover') else ''}{pos}" href="{base}work/{p['slug']}/">
 {bg}<span class="t{" long" if longest > 14 else ""}" aria-hidden="true">{e(p["card"])}</span>
 <span class="sr">{e(p['title'])}</span>
 <span class="line" aria-hidden="true"></span>
