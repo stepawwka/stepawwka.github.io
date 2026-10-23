@@ -137,7 +137,7 @@ def card(p, base):
           if p.get("cover") else "")
     pos = f" at-{p['text_pos']}" if p.get("text_pos") in ("top", "bottom") else ""
     return f"""<a class="card{tone}{' has-cover' if p.get('cover') else ''}{pos}" href="{base}work/{p['slug']}/">
-{bg}<span class="t{" long" if longest > 14 else ""}" aria-hidden="true">{e(p["card"])}</span>
+{bg}<span class="t{" long" if longest > 14 else ""}{" one" if (pos and "\n" not in p["card"] and len(p["card"]) > 16) else ""}" aria-hidden="true">{e(p["card"])}</span>
 <span class="sr">{e(p['title'])}</span>
 <span class="line" aria-hidden="true"></span>
 </a>"""

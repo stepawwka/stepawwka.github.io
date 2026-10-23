@@ -170,4 +170,5 @@ img{display:block;max-width:100%}
   .card .t{font-size:min(13cqi,60px);padding:0 6cqi;max-width:100%;box-sizing:border-box;overflow-wrap:break-word}
   .card .t.long{font-size:min(10.5cqi,48px)}
   .card.at-top .t,.card.at-bottom .t{font-size:min(10cqi,42px);padding:0 5cqi}
+  .card .t.one{font-size:min(8cqi,36px)}
 }

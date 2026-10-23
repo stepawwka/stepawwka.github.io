@@ -84,7 +84,7 @@
       "year": "",
       "text": "",
       "cover_hover": "assets/img/pushkin-color.jpg",
-      "text_pos": "top"
+      "text_pos": "bottom"
     },
     {
       "slug": "promo-360",
@@ -130,14 +130,13 @@
       "role": "",
       "year": "",
       "text": "",
-      "cover_hover": "assets/img/sber-color.jpg",
-      "text_pos": "top"
+      "cover_hover": "assets/img/sber-color.jpg"
     },
     {
       "slug": "ram-king-of-monkeys",
       "category": "music",
       "title": "RAM — Король Обезьян",
-      "card": "RAM —\nКОРОЛЬ ОБЕЗЬЯН",
+      "card": "RAM — КОРОЛЬ ОБЕЗЬЯН",
       "label": "Документальное промо",
       "cover": "assets/img/ram.jpg",
       "tone": "red",
@@ -147,7 +146,7 @@
       "year": "",
       "text": "",
       "cover_hover": "assets/img/ram-color.jpg",
-      "text_pos": "bottom"
+      "text_pos": "top"
     },
     {
       "slug": "nezhny-redaktor",
@@ -163,7 +162,7 @@
       "year": "",
       "text": "",
       "cover_hover": "assets/img/nezhny-color.jpg",
-      "text_pos": "top"
+      "text_pos": "bottom"
     }
   ]
 }
