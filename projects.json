@@ -165,6 +165,34 @@
       "text": "",
       "cover_hover": "assets/img/nezhny-color.jpg",
       "text_pos": "bottom"
+    },
+    {
+      "label": "YouTube",
+      "cover": "",
+      "video": "https://youtu.be/zXEPpnWTKvQ",
+      "client": "",
+      "role": "",
+      "year": "",
+      "text": "",
+      "category": "youtube",
+      "slug": "reshetova-moscow-raceway",
+      "title": "Решетова влог с Moscow Raceway",
+      "card": "РЕШЕТОВА\nВЛОГ",
+      "tone": "red"
+    },
+    {
+      "label": "YouTube",
+      "cover": "",
+      "video": "https://youtu.be/B_NFsDjrGR0",
+      "client": "",
+      "role": "",
+      "year": "",
+      "text": "",
+      "category": "youtube",
+      "slug": "beauty-bez-kupyur",
+      "title": "Бьюти без купюр",
+      "card": "БЬЮТИ\nБЕЗ КУПЮР",
+      "tone": "dark"
     }
   ]
 }
