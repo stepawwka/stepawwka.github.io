@@ -72,12 +72,13 @@ img{display:block;max-width:100%}
 .sec-head h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(44px,8.3vw,120px);line-height:.92;overflow-wrap:anywhere}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:24px}
 
-.card{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;overflow:hidden;background:var(--panel);isolation:isolate}
+.card{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;overflow:hidden;background:var(--panel);isolation:isolate;container-type:inline-size}
 .card.red{background:var(--wine)}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .card .t{position:relative;font-family:var(--display);text-transform:uppercase;text-align:center;line-height:.95;padding:0 24px;
   font-size:clamp(30px,4.2vw,60px);white-space:pre-line;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .card .t.long{font-size:clamp(26px,3.4vw,48px)}
+
 .card .meta{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:18px 20px;
   font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);background:linear-gradient(transparent,rgba(6,7,9,.9))}
 /* "cover_hover": при наведении фирменный кадр сменяется оригиналом в цвете */
@@ -162,4 +163,11 @@ img{display:block;max-width:100%}
   .foot .btns{gap:12px}
   .foot .btn{padding:16px 22px;font-size:13px}
   .pn a{max-width:100%}
+}
+
+/* размер надписи считается от ширины самой карточки, а не окна — текст не вылезает ни при каком шрифте */
+@supports (font-size:1cqi){
+  .card .t{font-size:min(13cqi,60px);padding:0 6cqi;max-width:100%;box-sizing:border-box;overflow-wrap:break-word}
+  .card .t.long{font-size:min(10.5cqi,48px)}
+  .card.at-top .t,.card.at-bottom .t{font-size:min(10cqi,42px);padding:0 5cqi}
 }
