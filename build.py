@@ -118,17 +118,24 @@ def footer():
 </footer>"""
 
 
+def asset(path):
+    """Путь к картинке с меткой версии, чтобы после замены файла браузер не показывал старый из кэша."""
+    import hashlib
+    try:
+        h = hashlib.md5(open(os.path.join(ROOT, path), "rb").read()).hexdigest()[:8]
+        return f"{path}?v={h}"
+    except OSError:
+        return path
+
+
 def card(p, base):
     longest = max(len(x) for x in p["card"].split("\n"))
-    tone = "" if p.get("cover") else (" red" if p.get("tone") == "red" else "")
-    inner = (f'<img src="{base}{e(p["cover"])}" alt="" loading="lazy" decoding="async">'
-             if p.get("cover") else
-             f'<span class="t{" long" if longest > 14 else ""}" aria-hidden="true">{e(p["card"])}</span>')
-    meta = (f'<span class="meta" aria-hidden="true"><span>{e(p.get("label"))}</span><span>▶</span></span>'
-            if p.get("cover") else "")
-    return f"""<a class="card{tone}" href="{base}work/{p['slug']}/">
-{inner}
-{meta}<span class="sr">{e(p['title'])}</span>
+    tone = " red" if (not p.get("cover") and p.get("tone") == "red") else ""
+    bg = (f'<img src="{base}{e(asset(p["cover"]))}" alt="" loading="lazy" decoding="async"><span class="shade" aria-hidden="true"></span>'
+          if p.get("cover") else "")
+    return f"""<a class="card{tone}{' has-cover' if p.get('cover') else ''}" href="{base}work/{p['slug']}/">
+{bg}<span class="t{" long" if longest > 14 else ""}" aria-hidden="true">{e(p["card"])}</span>
+<span class="sr">{e(p['title'])}</span>
 <span class="line" aria-hidden="true"></span>
 </a>"""
 
@@ -181,7 +188,7 @@ def build_project(i, p):
         player_attrs = f' data-src="{e(play_src)}" data-title="{e(p["title"])}"'
         poster = p.get("poster") or p.get("cover")
         if poster:
-            inner = f'<img src="{base}{e(poster)}" alt="" decoding="async">'
+            inner = f'<img src="{base}{e(asset(poster))}" alt="" decoding="async">'
             tone = ""
         else:
             inner = f'<b aria-hidden="true">{e(p["card"])}</b>'

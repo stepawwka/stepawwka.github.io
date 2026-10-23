@@ -80,6 +80,9 @@ img{display:block;max-width:100%}
 .card .t.long{font-size:clamp(26px,3.4vw,48px)}
 .card .meta{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:18px 20px;
   font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);background:linear-gradient(transparent,rgba(6,7,9,.9))}
+.card .shade{position:absolute;inset:0;background:rgba(6,7,9,.5);transition:background .5s}
+.card.has-cover .t{text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.card:hover .shade,.card:focus-visible .shade{background:rgba(6,7,9,.12)}
 .card .line{position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.7,0,.2,1)}
 .card:hover,.card:focus-visible{color:var(--white)}
 .card:hover img,.card:focus-visible img{transform:scale(1.04)}
