@@ -86,7 +86,7 @@ img{display:block;max-width:100%}
 @media (hover:none){.card img.alt,.poster img.alt{display:none}}
 .card .shade{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(6,7,9,.55),rgba(6,7,9,.2) 75%);transition:opacity .5s}
 /* надпись сверху/снизу, если в центре обложки важная деталь: "text_pos" в projects.json */
-.card.at-top .t,.card.at-bottom .t{white-space:nowrap;font-size:clamp(26px,3.3vw,48px)}
+.card.at-top .t,.card.at-bottom .t{white-space:pre-line;text-wrap:balance;font-size:clamp(24px,2.9vw,42px);padding:0 16px}
 .card.at-top{align-items:flex-start;padding-top:clamp(14px,2.2vw,28px)}
 .card.at-bottom{align-items:flex-end;padding-bottom:clamp(14px,2.2vw,28px)}
 .card.at-top .shade{background:linear-gradient(rgba(6,7,9,.7),rgba(6,7,9,.2) 55%,rgba(6,7,9,.1))}
