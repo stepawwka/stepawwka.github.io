@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stepan Korovkin — моушн-дизайнер</title>
+<meta name="description" content="Stepan Korovkin, моушн-дизайнер. Motion Design Showreel.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stepan Korovkin — моушн-дизайнер">
+<meta property="og:description" content="Stepan Korovkin, моушн-дизайнер. Motion Design Showreel.">
+<meta property="og:image" content="../assets/img/og.jpg">
+<meta name="theme-color" content="#03FE0E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23060709%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Impact%2CArial%20Narrow%2Csans-serif%22%20font-size%3D%2234%22%20fill%3D%22%23F7F8FA%22%20text-anchor%3D%22middle%22%3ESK%3C/text%3E%3Crect%20x%3D%228%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%226%22%20fill%3D%22%2303FE0E%22/%3E%3C/svg%3E">
+<link rel="preload" href="../assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/sofia-latin-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/sofia-cyrillic-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/yuji-kana.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="motion">
+<header class="wrap top">
+<a class="mark" href="./" aria-label="Stepan Korovkin — моушн-дизайнер">SK</a>
+<nav class="nav" aria-label="Разделы">
+<a href="#showreel"><span class="l">Шоурил</span><span class="s">Шоурил</span></a>
+<a href="#contact"><span class="l">Контакты</span><span class="s">Контакты</span></a>
+</nav>
+<a class="btn small" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram ↗</a>
+</header>
+<main>
+<section class="hero" aria-label="Обложка">
+<div class="name">
+<h1>Stepan<br>Korovkin</h1>
+<div class="tag" aria-hidden="true"><span class="tag-k" lang="ja"><span class="">モ</span><span class="lv">ー</span><span class="">シ</span><span class="">ョ</span><span class="">ン</span></span></div>
+</div>
+<div class="bbox"><i></i><i></i><i></i><i></i><i></i><i></i><p class="role">Моушн-дизайнер</p></div>
+<a class="hero-more" href="#showreel">Шоурил <span aria-hidden="true">↓</span></a>
+</section>
+<section id="showreel" class="wrap sec">
+<div class="sec-head"><span class="num" aria-hidden="true">01</span><h2>Шоурил</h2></div>
+<div class="player" data-src="https://www.youtube-nocookie.com/embed/btoT3GIv6sg?rel=0&amp;modestbranding=1&amp;autoplay=1" data-title="Motion Design Showreel"><button class="poster" type="button" aria-label="Смотреть: Motion Design Showreel"><img src="https://i.ytimg.com/vi/btoT3GIv6sg/maxresdefault.jpg" alt="" decoding="async" onerror="if(this.src.indexOf('maxres')>0)this.src=this.src.replace('maxresdefault','hqdefault');else this.remove()"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+<noscript><iframe src="https://www.youtube-nocookie.com/embed/btoT3GIv6sg?rel=0&amp;modestbranding=1" title="Motion Design Showreel" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock" allowfullscreen></iframe></noscript></div>
+<p class="reel-t">Motion Design Showreel</p>
+</section>
+</main>
+<footer id="contact" class="foot">
+<div class="foot-h"><h2>Написать</h2><div class="tag" aria-hidden="true"><span class="tag-k" lang="ja"><span>連</span><span>絡</span></span></div></div>
+<div class="btns">
+<a class="btn fill" href="https://t.me/stepawwka" target="_blank" rel="noopener">Telegram @STEPAWWKA</a>
+<a class="btn" href="mailto:yrasreda2@gmail.com">YRASREDA2@GMAIL.COM</a>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.player[data-src] .poster').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var p = b.parentElement, f = document.createElement('iframe');
+    f.src = p.dataset.src; f.title = p.dataset.title; f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock';
+    f.allowFullscreen = true; f.referrerPolicy = 'strict-origin-when-cross-origin';
+    p.replaceChildren(f); f.focus();
+  });
+});
+</script>
+</body>
+</html>

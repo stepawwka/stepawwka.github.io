@@ -243,3 +243,18 @@ body.noscroll{overflow:hidden}
 .about-tags li{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;border:1px solid #2a2c33}
 .about-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
 .about-btns .btn{padding:16px 22px;font-size:13px}
+
+/* about: ссылки и акценты в тексте */
+.about-panel p b{font-weight:500;color:var(--white)}
+.about-link{color:var(--white);text-decoration:underline;text-decoration-color:#03FE0E;text-decoration-thickness:2px;text-underline-offset:4px;transition:color .2s}
+.about-link:hover{color:#03FE0E}
+
+/* страница моушн-дизайна: та же система, зелёный акцент */
+.motion{--red:#03FE0E;--wine:#022e06}
+.motion ::selection{background:#03FE0E;color:#060709}
+.motion .btn.fill{color:var(--bg)}
+.motion .btn.fill:hover{color:var(--bg)}
+.motion .play svg{fill:var(--bg)}
+.motion .tag-k .lv{display:inline-block;transform:rotate(90deg)}
+.motion .hero-more{margin-top:8px}
+.reel-t{margin:18px 0 0;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}

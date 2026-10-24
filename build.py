@@ -141,14 +141,14 @@ def contacts_buttons():
     return b
 
 
-def footer(base=""):
+def footer(base="", about=True):
     return f"""<footer id="contact" class="foot">
 <div class="foot-h"><h2>Написать</h2><div class="tag" aria-hidden="true"><span class="tag-k" lang="ja"><span>連</span><span>絡</span></span></div></div>
 <div class="btns">
 {contacts_buttons()}
 </div>
 </footer>
-{about_panel(base)}"""
+{about_panel(base) if about else ""}"""
 
 
 def about_panel(base):
@@ -159,11 +159,12 @@ def about_panel(base):
             photo += f'<img class="alt" src="{base}{e(asset(a["photo_hover"]))}" alt="" loading="lazy" decoding="async">'
     else:
         photo = '<span class="ph" aria-hidden="true"><span class="ph-k">' + "".join(f"<span>{ch}</span>" for ch in KANA) + '</span><span class="ph-m">SK</span></span>'
-    paras = "".join(f"<p>{e(t)}</p>" for t in a.get("text", []))
-    lead = e(a.get("lead", ""))
-    hl = a.get("lead_accent")
-    if hl and e(hl) in lead:
-        lead = lead.replace(e(hl), f'<b>{e(hl)}</b>', 1)
+    def rich(t):
+        t = e(t)
+        t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+        return re.sub(r"\[(.+?)\]\((.+?)\)", lambda m: f'<a class="about-link" href="{base}{m.group(2)}">{m.group(1)}</a>', t)
+    paras = "".join(f"<p>{rich(t)}</p>" for t in a.get("text", []))
+    lead = rich(a.get("lead", ""))
     chips = "".join(
         f'<li class="{e(c.get("kind", ""))}">{e(c["text"])}</li>' for c in a.get("chips", []))
     return f"""<div id="about" class="about" role="dialog" aria-modal="true" aria-labelledby="about-title">
@@ -305,7 +306,57 @@ def build_project(i, p):
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(out)
 
 
+def build_motion():
+    """Отдельная страница моушн-дизайна: свой цвет, без ссылок на основной сайт."""
+    m = site.get("motion")
+    if not m:
+        return
+    base = "../"
+    src = embed(m["video"])
+    play_src = src + ("&" if "?" in src else "?") + "autoplay=1"
+    kana = "".join(f'<span class="{"lv" if ch == "ー" else ""}">{ch}</span>' for ch in m["kana"])
+    poster = (f'<img src="{e(m["poster"])}" alt="" decoding="async" '
+              f'onerror="if(this.src.indexOf(\'maxres\')>0)this.src=this.src.replace(\'maxresdefault\',\'hqdefault\');else this.remove()">') if m.get("poster") else ""
+    out = head(f"{site['name']} — {m['role'].lower()}",
+               f"{site['name']}, {m['role'].lower()}. {m['title']}.", base)
+    out = out.replace('<body>', '<body class="motion">').replace('content="#060709"', 'content="#03FE0E"').replace("%23E10E0E", "%2303FE0E")
+    out += f"""
+<header class="wrap top">
+<a class="mark" href="./" aria-label="{e(site['name'])} — {e(m['role'].lower())}">SK</a>
+<nav class="nav" aria-label="Разделы">
+<a href="#showreel"><span class="l">Шоурил</span><span class="s">Шоурил</span></a>
+<a href="#contact"><span class="l">Контакты</span><span class="s">Контакты</span></a>
+</nav>
+<a class="btn small" href="https://t.me/{e(site['telegram'])}" target="_blank" rel="noopener">Telegram ↗</a>
+</header>
+<main>
+<section class="hero" aria-label="Обложка">
+<div class="name">
+<h1>Stepan<br>Korovkin</h1>
+<div class="tag" aria-hidden="true"><span class="tag-k" lang="ja">{kana}</span></div>
+</div>
+<div class="bbox"><i></i><i></i><i></i><i></i><i></i><i></i><p class="role">{e(m['role'])}</p></div>
+<a class="hero-more" href="#showreel">Шоурил <span aria-hidden="true">↓</span></a>
+</section>
+<section id="showreel" class="wrap sec">
+<div class="sec-head"><span class="num" aria-hidden="true">01</span><h2>Шоурил</h2></div>
+<div class="player" data-src="{e(play_src)}" data-title="{e(m['title'])}"><button class="poster" type="button" aria-label="Смотреть: {e(m['title'])}">{poster}<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></button>
+<noscript><iframe src="{e(src)}" title="{e(m['title'])}" allow="{ALLOW}" allowfullscreen></iframe></noscript></div>
+<p class="reel-t">{e(m['title'])}</p>
+</section>
+</main>
+{footer(base, about=False)}
+{PLAYER_JS}
+</body>
+</html>
+"""
+    d = os.path.join(ROOT, "motion")
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(out)
+
+
 build_index()
+build_motion()
 for i, p in enumerate(projects):
     build_project(i, p)
 print(f"OK: index + {len(projects)} страниц проектов")
