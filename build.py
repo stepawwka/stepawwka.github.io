@@ -143,7 +143,7 @@ def contacts_buttons():
 
 def footer(base=""):
     return f"""<footer id="contact" class="foot">
-<h2>НАПИСАТЬ<span aria-hidden="true"></span></h2>
+<div class="foot-h"><h2>Написать</h2><div class="tag" aria-hidden="true"><span class="tag-k" lang="ja"><span>連</span><span>絡</span></span></div></div>
 <div class="btns">
 {contacts_buttons()}
 </div>
@@ -160,19 +160,21 @@ def about_panel(base):
     else:
         photo = '<span class="ph" aria-hidden="true"><span class="ph-k">' + "".join(f"<span>{ch}</span>" for ch in KANA) + '</span><span class="ph-m">SK</span></span>'
     paras = "".join(f"<p>{e(t)}</p>" for t in a.get("text", []))
-    services = "".join(f"<li>{e(x)}</li>" for x in a.get("services", []))
-    clients = "".join(f"<li>{e(x)}</li>" for x in a.get("clients", []))
+    lead = e(a.get("lead", ""))
+    hl = a.get("lead_accent")
+    if hl and e(hl) in lead:
+        lead = lead.replace(e(hl), f'<b>{e(hl)}</b>', 1)
+    chips = "".join(
+        f'<li class="{e(c.get("kind", ""))}">{e(c["text"])}</li>' for c in a.get("chips", []))
     return f"""<div id="about" class="about" role="dialog" aria-modal="true" aria-labelledby="about-title">
 <a class="about-bg" href="#" data-about-close aria-label="Закрыть"></a>
 <aside class="about-panel" tabindex="-1">
 <div class="about-top"><span>Обо мне</span><a class="about-x" href="#" data-about-close aria-label="Закрыть">✕</a></div>
-<div class="about-photo">{photo}</div>
-<h2 id="about-title" class="about-name">Stepan<br>Korovkin<i aria-hidden="true"></i></h2>
-<p class="about-role">{e(site['role'])}</p>
-<p class="about-lead">{e(a.get('lead'))}</p>
+<div class="about-photo"><i></i><i></i><i></i><i></i><div class="about-photo-in">{photo}</div></div>
+<h2 id="about-title" class="sr">Обо мне — {e(site['name'])}</h2>
+<p class="about-lead">{lead}</p>
 {paras}
-{f'<h3>Что делаю</h3><ul class="about-list">{services}</ul>' if services else ''}
-{f'<h3>Клиенты и проекты</h3><ul class="about-tags">{clients}</ul>' if clients else ''}
+{f'<ul class="about-chips">{chips}</ul>' if chips else ''}
 <div class="about-btns">{contacts_buttons()}</div>
 </aside>
 </div>
@@ -227,11 +229,10 @@ def build_index():
 <main>
 <section class="hero" aria-label="Обложка">
 <div class="name">
-<div class="kana" aria-hidden="true" lang="ja">{kana}</div>
 <h1>Stepan<br>Korovkin</h1>
-<div class="bar" aria-hidden="true"></div>
+<div class="tag" aria-hidden="true"><span class="tag-k" lang="ja">{kana}</span></div>
 </div>
-<p class="role">{e(site['role'])}</p>
+<div class="bbox"><i></i><i></i><i></i><i></i><i></i><i></i><p class="role">Режиссер монтажа</p></div>
 </section>
 {chr(10).join(secs)}
 </main>
