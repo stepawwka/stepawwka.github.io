@@ -154,16 +154,16 @@
       "slug": "promo-360",
       "category": "ads",
       "title": "Промо канала 360",
-      "card": "ПОГОДА 360",
+      "card": "ПОГОДА\n360",
       "label": "Промо",
       "cover": "assets/img/promo360.jpg",
-      "tone": "red",
       "video": "https://vimeo.com/787574185",
       "client": "Телеканал 360",
       "role": "Монтаж, SFX",
       "year": "2023",
       "text": "",
-      "cover_hover": "assets/img/promo360-color.jpg"
+      "cover_hover": "assets/img/promo360-color.jpg",
+      "text_pos": "left"
     },
     {
       "slug": "saint-petersburg",
