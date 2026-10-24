@@ -176,6 +176,7 @@ def about_panel(base):
 <p class="about-lead">{lead}</p>
 {paras}
 {f'<ul class="about-chips">{chips}</ul>' if chips else ''}
+{f'<p class="about-cta">{rich(a["cta"])}</p>' if a.get("cta") else ''}
 <div class="about-btns">{contacts_buttons()}</div>
 </aside>
 </div>

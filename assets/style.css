@@ -258,3 +258,4 @@ body.noscroll{overflow:hidden}
 .motion .tag-k .lv{display:inline-block;transform:rotate(90deg)}
 .motion .hero-more{margin-top:8px}
 .reel-t{margin:18px 0 0;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.about-panel .about-cta{margin:40px 0 0;font-family:var(--display);font-size:clamp(40px,6vw,56px);line-height:.95;text-transform:uppercase;color:var(--white)}
