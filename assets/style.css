@@ -259,3 +259,7 @@ body.noscroll{overflow:hidden}
 .motion .hero-more{margin-top:8px}
 .reel-t{margin:18px 0 0;font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .about-panel .about-cta{margin:40px 0 0;font-family:var(--display);font-size:clamp(40px,6vw,56px);line-height:.95;text-transform:uppercase;color:var(--white)}
+
+/* шапка «Обо мне» прилипает при скролле — крестик всегда под рукой */
+.about-top{position:sticky;top:-24px;z-index:4;margin:-24px calc(-1 * clamp(20px,4vw,44px)) 24px;
+  padding:20px clamp(20px,4vw,44px) 12px;background:rgba(11,12,15,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
