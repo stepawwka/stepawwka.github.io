@@ -233,6 +233,8 @@ def build_index():
 <div class="tag" aria-hidden="true"><span class="tag-k" lang="ja">{kana}</span></div>
 </div>
 <div class="bbox"><i></i><i></i><i></i><i></i><i></i><i></i><p class="role">Режиссер монтажа</p></div>
+<p class="hero-lead">Собираю идеи, образы и материал в&nbsp;единое целое</p>
+<a class="hero-more" href="#{cats[0]['id']}">Избранные работы <span aria-hidden="true">↓</span></a>
 </section>
 {chr(10).join(secs)}
 </main>

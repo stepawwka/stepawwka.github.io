@@ -63,9 +63,14 @@ img{display:block;max-width:100%}
 .hero .name,.hero .bbox{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 .hero .bbox{animation-delay:.15s}
 .hero .tag{transform-origin:top;animation:drop .7s .35s cubic-bezier(.7,0,.2,1) both}
+.hero-lead{margin:calc(-1 * clamp(6px,1.2vw,18px)) 0 0;max-width:34em;text-wrap:balance;text-align:center;font-size:clamp(16px,1.45vw,21px);line-height:1.45;color:var(--soft)}
+.hero-more{display:inline-flex;align-items:center;gap:12px;margin-top:clamp(4px,1.6vw,22px);font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:10px 0}
+.hero-more span{color:var(--red);font-size:20px;letter-spacing:0;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(5px)}}
+.hero .hero-lead,.hero .hero-more{animation:rise .9s .3s cubic-bezier(.2,.7,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}}
 @keyframes drop{from{transform:scaleY(0)}}
-@media (prefers-reduced-motion:reduce){.hero .name,.hero .bbox,.hero .tag{animation:none}}
+@media (prefers-reduced-motion:reduce){.hero .name,.hero .bbox,.hero .tag,.hero .hero-lead,.hero .hero-more,.hero-more span{animation:none}}
 
 /* sections */
 .sec{padding-top:100px;padding-bottom:40px;scroll-margin-top:12px}
