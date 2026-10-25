@@ -113,7 +113,7 @@ def head(title, desc, base, og_url=""):
 <meta name="theme-color" content="#060709">
 <link rel="icon" href="{FAVICON}">
 {FONTS.replace("{base}", base)}
-<link rel="stylesheet" href="{base}assets/style.css">
+<link rel="stylesheet" href="{base}{asset('assets/style.css')}">
 </head>
 <body>"""
 
