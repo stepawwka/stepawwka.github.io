@@ -356,8 +356,44 @@ def build_motion():
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(out)
 
 
+def build_links():
+    """Страница-визитка для био в Instagram: сайт, Telegram, почта."""
+    base = "../"
+    kana = "".join(f"<span>{ch}</span>" for ch in KANA)
+    rows = [("Портфолио", "Сайт с работами", base, False),
+            ("Telegram", "@" + site["telegram"], f"https://t.me/{site['telegram']}", True)]
+    if site.get("email"):
+        rows.append(("Почта", site["email"], f"mailto:{site['email']}", False))
+    items = "\n".join(
+        f'<a class="lk{" main" if i == 0 else ""}" href="{e(h)}"{" target=\"_blank\" rel=\"noopener\"" if ext else ""}>'
+        f'<span class="lk-t">{e(t)}</span><span class="lk-s">{e(sub)}</span><span class="lk-a" aria-hidden="true">{"→" if i == 0 else "↗"}</span></a>'
+        for i, (t, sub, h, ext) in enumerate(rows))
+    out = head(f"{site['name']} — ссылки", f"{site['name']}, {site['role'].lower()}. Портфолио и контакты.", base)
+    out = out.replace("<body>", '<body class="links">')
+    out += f"""
+<main class="lk-wrap">
+<section class="lk-hero" aria-label="{e(site['name'])}">
+<div class="name">
+<h1>Stepan<br>Korovkin</h1>
+<div class="tag" aria-hidden="true"><span class="tag-k" lang="ja">{kana}</span></div>
+</div>
+<div class="bbox"><i></i><i></i><i></i><i></i><i></i><i></i><p class="role">Режиссер монтажа</p></div>
+</section>
+<nav class="lk-list" aria-label="Ссылки">
+{items}
+</nav>
+</main>
+</body>
+</html>
+"""
+    d = os.path.join(ROOT, "links")
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(out)
+
+
 build_index()
 build_motion()
+build_links()
 for i, p in enumerate(projects):
     build_project(i, p)
 print(f"OK: index + {len(projects)} страниц проектов")

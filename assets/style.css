@@ -263,3 +263,27 @@ body.noscroll{overflow:hidden}
 /* шапка «Обо мне» прилипает при скролле — крестик всегда под рукой */
 .about-top{position:sticky;top:-24px;z-index:4;margin:-24px calc(-1 * clamp(20px,4vw,44px)) 24px;
   padding:20px clamp(20px,4vw,44px) 12px;background:rgba(11,12,15,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* /links/ — визитка для био */
+.lk-wrap{min-height:100svh;max-width:560px;margin:0 auto;padding:56px var(--pad) 48px;display:flex;flex-direction:column;justify-content:center;gap:48px}
+.lk-hero{display:flex;flex-direction:column;align-items:center;gap:28px}
+.lk-hero .name{font-size:min(17vw,96px)}
+.lk-hero .bbox{font-size:min(8.4vw,46px)}
+.lk-hero .bbox i{width:9px;height:9px;border-width:1.5px}
+.lk-hero .bbox i:nth-child(1),.lk-hero .bbox i:nth-child(3){left:-5px}.lk-hero .bbox i:nth-child(2),.lk-hero .bbox i:nth-child(4){right:-5px}
+.lk-hero .bbox i:nth-child(1),.lk-hero .bbox i:nth-child(2),.lk-hero .bbox i:nth-child(5){top:-5px}
+.lk-hero .bbox i:nth-child(3),.lk-hero .bbox i:nth-child(4),.lk-hero .bbox i:nth-child(6){bottom:-5px}
+.lk-hero .bbox i:nth-child(5),.lk-hero .bbox i:nth-child(6){left:calc(50% - 4.5px)}
+.lk-list{display:flex;flex-direction:column;gap:12px}
+.lk{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 16px;padding:18px 20px;border:1px solid #3a3c44;transition:border-color .2s,background .2s,color .2s}
+.lk-t{font-family:var(--display);font-size:30px;line-height:1;text-transform:uppercase}
+.lk-s{grid-column:1;font-size:14px;color:var(--mute);letter-spacing:.02em}
+.lk-a{grid-column:2;grid-row:1/3;font-size:24px;color:var(--red);transition:transform .25s,color .2s}
+.lk:hover{border-color:var(--red);color:var(--white)}
+.lk:hover .lk-a{transform:translateX(4px)}
+.lk.main{background:var(--red);border-color:var(--red)}
+.lk.main .lk-s{color:rgba(247,248,250,.8)}
+.lk.main .lk-a{color:var(--white)}
+.lk.main:hover{background:var(--white);border-color:var(--white);color:var(--bg)}
+.lk.main:hover .lk-s,.lk.main:hover .lk-a{color:var(--bg)}
+.lk-hero .role{margin:0;font-family:var(--display);font-size:1em;line-height:1;text-transform:uppercase;white-space:nowrap}
